@@ -1,0 +1,157 @@
+---
+const contactMenu = [
+  {
+    icon: '/assets/icons/phone.png',
+    label: '(877) 535-0896',
+    link: 'tel:+18775350896',
+  },
+  {
+    icon: '/assets/icons/mail.png',
+    label: 'sales@brazilianlumber.com',
+    link: 'mailto:sales@brazilianlumber.com',
+  },
+  {
+    icon: '/assets/icons/location.png',
+    label:
+      '79 SW 12th St, Miami, FL 33130 (Mailing) 777 NW 71st St, Miami, FL 33150 (Lumber Store)',
+    link: 'https://maps.app.goo.gl/h8TAxsCgQPTefD2EA',
+  },
+];
+
+const hoursMenu = [
+  {
+    day: 'Monday',
+    hour: '9:00 AM - 5:00 PM',
+  },
+  {
+    day: 'Tuesday',
+    hour: '9:00 AM - 5:00 PM',
+  },
+  {
+    day: 'Wednesday',
+    hour: '9:00 AM - 5:00 PM',
+  },
+  {
+    day: 'Thursday',
+    hour: '9:00 AM - 5:00 PM',
+  },
+  {
+    day: 'Friday',
+    hour: '9:00 AM - 5:00 PM',
+  },
+  {
+    day: 'Saturday & Sunday',
+    hour: 'Closed',
+  },
+];
+
+const navigationMenu = [
+  {
+    label: 'About Us',
+    link: '#about-us',
+  },
+  {
+    label: 'Trusted Brands',
+    link: '#trusted-brands',
+  },
+  {
+    label: 'Outdoor Spaces',
+    link: '#outdoor-spaces',
+  },
+  {
+    label: 'FAQs',
+    link: '#faqs',
+  },
+  {
+    label: 'Contact Us',
+    link: '#contact',
+  },
+];
+---
+
+<footer class="bg-[#FE7F03] text-white pt-16 pb-12">
+  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex gap-10 pb-10 justify-between">
+      <!-- Brand & Licensing -->
+      <div class="lg:col-span-2 space-y-4 w-fit">
+        <img
+          src="/assets/composite-decking-miami-fl-footer-logo.webp"
+          alt="Composite Decking Miami FL Logo"
+          class="h-20"
+        />
+      </div>
+
+      <!-- Service Locations -->
+      <div class="w-[280px]">
+        <h4
+          class="text-sm font-medium text-white uppercase mb-5 tracking-[1.5px]"
+        >
+          Contact
+        </h4>
+        <ul class="space-y-5 text-sm">
+          {
+            contactMenu.map((item) => (
+              <li>
+                <a href={item.link} class="flex items-center gap-3">
+                  <img
+                    src={item.icon}
+                    alt=""
+                    class="h-3 object-contain ml-[-22px]"
+                  />
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Hours -->
+      <div class="w-fit">
+        <h4
+          class="text-sm font-medium text-white uppercase mb-5 tracking-[1.5px]"
+        >
+          Hours
+        </h4>
+        <ul class="space-y-5 text-sm">
+          {
+            hoursMenu.map((item) => (
+              <li class="flex gap-5 last:opacity-70">
+                <p class="w-[100px]">{item.day}</p>
+                <p>{item.hour}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="w-fit">
+        <h4
+          class="text-sm font-medium text-white uppercase mb-5 tracking-[1.5px]"
+        >
+          Navigation
+        </h4>
+        <ul class="space-y-5 text-sm">
+          {
+            navigationMenu.map((item) => (
+              <li>
+                <a href={item.link} class="text-white">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="text-sm text-white">
+      <p>
+        © Compositive Decking Miami {new Date().getFullYear()}, All rights
+        reserverd
+      </p>
+    </div>
+  </div>
+</footer>

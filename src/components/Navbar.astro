@@ -1,0 +1,104 @@
+---
+
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#FE7F03]">
+  <div
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between"
+  >
+    <!-- Brand Logo -->
+    <img
+      src="/assets/composite-decking-miami-fl.webp"
+      alt="Composite Decking Miami FL Icon"
+      class="h-12"
+    />
+
+    <!-- Navigation Links -->
+    <nav
+      class="hidden md:flex items-center gap-8 text-sm font-light text-white"
+    >
+      <a href="#about-us" class="hover:text-[#2D0863] transition-colors"
+        >About Us</a
+      >
+      <a href="#trusted-brands" class="hover:text-[#2D0863] transition-colors"
+        >Trusted Brands</a
+      >
+      <a href="#outdoor-spaces" class="hover:text-[#2D0863] transition-colors"
+        >Outdoor Spaces</a
+      >
+      <a href="#faqs" class="hover:text-[#2D0863] transition-colors">FAQs</a>
+      <a href="#contact" class="hover:text-[#2D0863] transition-colors"
+        >Contact Us</a
+      >
+    </nav>
+
+    <!-- Call Action & Phone -->
+    <div class="flex items-center gap-4">
+      <a
+        href="tel:3055553325"
+        class="flex items-center gap-2 text-sm text-[#FE7F03] bg-white border border-white rounded-full px-6 py-2"
+      >
+        (877) 535-0896
+      </a>
+    </div>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      aria-label="Toggle menu"
+      class="md:hidden p-2 text-slate-400 hover:text-white"
+    >
+      <svg
+        class="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Dropdown -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-slate-800 bg-[#0B132B] px-4 py-6 space-y-4"
+  >
+    <a
+      href="#services"
+      class="block text-slate-200 font-medium hover:text-wood-light">Services</a
+    >
+    <a
+      href="#materials"
+      class="block text-slate-200 font-medium hover:text-wood-light"
+      >Materials & Colors</a
+    >
+    <a
+      href="#portfolio"
+      class="block text-slate-200 font-medium hover:text-wood-light"
+      >Project Gallery</a
+    >
+    <a href="#calculator" class="block text-miami-cyan font-semibold"
+      >Cost Calculator</a
+    >
+    <a
+      href="#reviews"
+      class="block text-slate-200 font-medium hover:text-wood-light"
+      >Customer Reviews</a
+    >
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

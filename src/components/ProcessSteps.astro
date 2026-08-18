@@ -1,0 +1,99 @@
+---
+const steps = [
+  {
+    image: '/assets/icons/user-comment.png',
+    label: 'Tell us about your project',
+  },
+  {
+    image: '/assets/icons/select-multiple.png',
+    label: 'Receive product recommendations',
+  },
+  {
+    image: '/assets/icons/paint-bucket.png',
+    label: 'Select colors and materials',
+  },
+  {
+    image: '/assets/icons/chat-round-money-broken.png',
+    label: 'Get pricing and estimate',
+  },
+  {
+    image: '/assets/icons/wood.png',
+    label: 'Build your dream outdoor space',
+  },
+];
+---
+
+<section id="project-types" class="process-section py-16 px-5">
+  <div class="process-container">
+    <!-- Title with decorative circle (same pattern as Benefits section) -->
+    <div class="process-title-wrapper flex justify-center items-center gap-3">
+      <div class="process-dot-ring">
+        <span class="process-dot-inner"></span>
+      </div>
+      <h2 class="process-title text-[#d65311] text-4xl uppercase">
+        Designed for Every Outdoor Space
+      </h2>
+    </div>
+
+    <!-- Overlapping circles row -->
+    <div class="circles-row flex justify-center">
+      {
+        steps.map((step) => (
+          <div class="circle-item flex rounded-full w-[250px] h-[250px] items-center justify-center mx-[-10px] flex-col gap-3 p-12 border border-dashed border-[#FF5623] transition-all duration-300 hover:scale-110">
+            <div class="circle-card">
+              <img
+                src={step.image}
+                alt={step.label}
+                class="circle-img h-16 object-contain"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <span class="circle-label text-center">{step.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .process-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+
+  .process-dot-ring {
+    background: #ffdcb94d;
+    min-width: 28px;
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .process-dot-inner {
+    background: #d65311;
+    min-width: 12px;
+    min-height: 12px;
+    border-radius: 50%;
+  }
+
+  @media (max-width: 768px) {
+    .process-container {
+      padding: 0 48px;
+      gap: 48px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .process-container {
+      padding: 0 36px;
+    }
+  }
+</style>

@@ -1,0 +1,84 @@
+---
+const cards = [
+  {
+    image: '/assets/icons/material-symbols-light_inventory-rounded.png',
+    alt: 'Inventory Icon',
+    title: 'Largest inventory in South Florida',
+  },
+  {
+    image: '/assets/icons/dimond-alt-light.png',
+    alt: 'Dimond Alt Light Icon',
+    title: 'Premium brands  in stock',
+  },
+  {
+    image: '/assets/icons/eye-check.png',
+    alt: 'Eye Check Icon',
+    title: 'Expert product guidance',
+  },
+  {
+    image: '/assets/icons/estimate-calculator.png',
+    alt: 'Estimate Calculator Icon',
+    title: 'Free estimates',
+  },
+  {
+    image: '/assets/icons/lucide-house.png',
+    alt: 'Lucide House Icon',
+    title: 'Residential & Commercial projects',
+  },
+];
+---
+
+<section
+  class="relative pt-32 pb-20 md:pt-64 md:pb-25 overflow-hidden bg-[url(/assets/banner-composite-decking-miami.webp)] bg-cover bg-center"
+>
+  <div class="max-w-[1400px] mx-auto px-5">
+    <!-- Top Header Layout: Title & Buttons (Left) + Text (Right) -->
+    <div class="mb-32 relative">
+      <!-- Left Column: Title with 2 Buttons Below -->
+      <div class="text-left w-[60%]">
+        <!-- Headline -->
+        <h1
+          class="text-4xl sm:text-5xl lg:text-6xl font-medium uppercase text-white !leading-[70px] mb-6"
+        >
+          Miami's<br /> Largest Selection of Composite Decking
+        </h1>
+
+        <!-- 2 Buttons Below Title -->
+        <div
+          class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
+        >
+          <a href="#contact" class="btn-primary">Get a Free Estimate</a>
+          <a href="tel:3055553325" class="btn-primary">Call Now</a>
+        </div>
+      </div>
+
+      <!-- Right Column: Text Arriba a la Derecha -->
+      <div
+        class="absolute right-0 top-[-80px] w-[380px] flex gap-4 items-start"
+      >
+        <p class="text-lg text-white font-light text-right leading-relaxed m-0">
+          Premium composite decking, docks, cladding, wall panels, and outdoor
+          solutions from the industry's leading brands.
+        </p>
+
+        <div
+          class="bg-white/30 min-w-7 min-h-7 flex items-center justify-center rounded-full"
+        >
+          <span class="bg-white min-w-3 min-h-3 rounded-full"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Section: 6 Cards Underneath Main Text/Header -->
+    <div class="flex flex-wrap justify-center gap-6 pt-4">
+      {
+        cards.map((card) => (
+          <div class="bg-white/20 backdrop-blur-[2px] flex items-center gap-4 w-[18%] p-4 sm:p-6 rounded-2xl border-white border transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden">
+            <img src={card.image} alt={card.alt} class="h-8" />
+            <h3 class="text-md font-normal text-white">{card.title}</h3>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

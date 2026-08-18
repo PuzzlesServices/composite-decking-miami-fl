@@ -1,0 +1,220 @@
+---
+const slides = [
+  {
+    image: '/assets/composite-decking.webp',
+    alt: 'Composite Deck Installation Miami',
+    title: 'Composite Decking',
+    description:
+      "Composite decking is a low-maintenance, long-lasting solution for outdoor living spaces in Miami's demanding climate. Engineered to resist moisture, fading, insects, and everyday wear, it delivers the natural appearance of wood without the need for frequent staining or sealing. Whether you're designing a residential patio, rooftop terrace, or commercial outdoor area, composite decking offers lasting beauty and performance.",
+  },
+  {
+    image: '/assets/wall-ceiling.webp',
+    alt: 'Pool Deck Miami FL',
+    title: 'Wall & Ceiling Systems',
+    description:
+      'Enhance interior and exterior spaces with premium wall and ceiling systems that combine modern design with exceptional durability. Ideal for homes, restaurants, offices, and hospitality projects throughout Miami, these architectural solutions add warmth, texture, and sophistication while standing up to humidity and changing weather conditions. Available in a variety of finishes, they create seamless, contemporary spaces built to last.',
+  },
+  {
+    image: '/assets/grid-clading.webp',
+    alt: 'Composite Cladding Miami',
+    title: 'Grid Cladding',
+    description:
+      "Grid cladding systems offer a sleek architectural solution that improves both aesthetics and functionality. Designed to add depth, shade, and visual interest to façades, pergolas, and outdoor structures, they are ideal for Miami's contemporary residential and commercial projects. Built with durable materials that withstand coastal conditions, grid cladding delivers a refined finish with minimal maintenance.",
+  },
+  {
+    image: '/assets/docks-marine.webp',
+    alt: 'Composite Dock Miami',
+    title: 'Docks & Marine Applications',
+    description:
+      "Built for waterfront living, our decking and cladding solutions are engineered to perform in Miami's marine environments. Whether for private docks, marinas, boardwalks, or waterfront properties, these materials are designed to resist moisture, salt air, UV exposure, and heavy foot traffic. The result is a durable, attractive surface that maintains its appearance while requiring minimal upkeep, even in the harshest coastal conditions.",
+  },
+];
+---
+
+<section id="projects" class="py-24 bg-white overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-5 lg:px-8">
+    <!-- Header Row: Title + Arrows -->
+    <div
+      class="flex items-center justify-between mb-12 gap-6 border-b border-[#AFAFAF] pb-10"
+    >
+      <!-- Decorative dot + Title -->
+      <div class="flex items-center gap-6">
+        <div
+          class="bg-[#D65311]/20 min-w-7 min-h-7 flex items-center justify-center rounded-full"
+        >
+          <span class="bg-[#D65311] min-w-3 min-h-3 rounded-full"></span>
+        </div>
+        <h2
+          class="text-2xl lg:text-4xl font-light uppercase text-[#D65311] leading-tight"
+        >
+          Every surface, considered.
+        </h2>
+      </div>
+
+      <!-- Navigation Controls -->
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <button
+          id="slider-prev"
+          aria-label="Previous slide"
+          class="group w-12 h-12 rounded-full border-2 border-[#555555] flex items-center justify-center text-[#555555] hover:bg-[#555555] hover:text-white transition-all duration-300 active:scale-95"
+        >
+          <svg
+            class="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-0.5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <button
+          id="slider-next"
+          aria-label="Next slide"
+          class="group w-12 h-12 rounded-full border-2 border-[#555555] flex items-center justify-center text-[#555555] hover:bg-[#555555] hover:text-white transition-all duration-300 active:scale-95"
+        >
+          <svg
+            class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Slider Track -->
+    <div class="relative overflow-hidden">
+      <div id="slider-track" class="flex transition-transform duration-500">
+        {
+          slides.map((slide, index) => (
+            <div
+              class="slider-slide min-w-full flex flex-col md:flex-row items-stretch overflow-hidden"
+              data-index={index}
+            >
+              {/* Image */}
+              <div class="md:w-1/2 h-64 md:h-[500px] relative overflow-hidden rounded-3xl">
+                <img
+                  src={slide.image}
+                  alt={slide.alt}
+                  class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105 rounded-3xl"
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                />
+              </div>
+
+              {/* Content */}
+              <div class="md:w-1/2 flex flex-col justify-start gap-6 p-10 lg:p-16">
+                <h3 class="text-2xl lg:text-3xl font-medium text-[#2D0863] leading-snug">
+                  {slide.title}
+                </h3>
+
+                <p class="w-[90%] text-base lg:text-lg text-gray-600 font-light leading-relaxed">
+                  {slide.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Dot Indicators -->
+    <div
+      class="flex justify-center gap-2 mt-8"
+      id="slider-dots"
+      role="tablist"
+      aria-label="Slide indicators"
+    >
+      {
+        slides.map((_, index) => (
+          <button
+            class={`slider-dot h-1.5 rounded-full transition-all duration-300 ${index === 0 ? 'w-8 bg-[#2D0863]' : 'w-1.5 bg-gray-300 hover:bg-gray-400'}`}
+            data-index={index}
+            role="tab"
+            aria-selected={index === 0 ? 'true' : 'false'}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  const track = document.getElementById('slider-track') as HTMLElement;
+  const prevBtn = document.getElementById('slider-prev') as HTMLButtonElement;
+  const nextBtn = document.getElementById('slider-next') as HTMLButtonElement;
+  const currentDisplay = document.getElementById(
+    'slider-current'
+  ) as HTMLElement;
+  const dots = document.querySelectorAll<HTMLButtonElement>('.slider-dot');
+
+  let current = 0;
+  const total = dots.length;
+
+  function goTo(index: number) {
+    current = (index + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    currentDisplay.textContent = String(current + 1);
+
+    dots.forEach((dot, i) => {
+      if (i === current) {
+        dot.classList.add('w-8', 'bg-[#2D0863]');
+        dot.classList.remove('w-1.5', 'bg-gray-300');
+        dot.setAttribute('aria-selected', 'true');
+      } else {
+        dot.classList.remove('w-8', 'bg-[#2D0863]');
+        dot.classList.add('w-1.5', 'bg-gray-300');
+        dot.setAttribute('aria-selected', 'false');
+      }
+    });
+  }
+
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => goTo(Number(dot.dataset.index)));
+  });
+
+  // Touch / swipe
+  let touchStartX = 0;
+  track?.addEventListener(
+    'touchstart',
+    (e) => {
+      touchStartX = e.touches[0].clientX;
+    },
+    { passive: true }
+  );
+  track?.addEventListener(
+    'touchend',
+    (e) => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) diff > 0 ? goTo(current + 1) : goTo(current - 1);
+    },
+    { passive: true }
+  );
+
+  // Keyboard
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+
+  // Auto-play — pauses on hover
+  let autoPlay = setInterval(() => goTo(current + 1), 5000);
+  track?.addEventListener('mouseenter', () => clearInterval(autoPlay));
+  track?.addEventListener('mouseleave', () => {
+    autoPlay = setInterval(() => goTo(current + 1), 5000);
+  });
+</script>

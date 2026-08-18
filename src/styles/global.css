@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply selection:bg-[#D65311] selection:text-white overflow-x-hidden;
+  }
+}
+
+.btn-primary {
+  @apply px-10 py-4 rounded-full text-white font-light bg-white/20 transition-all hover:scale-105 active:scale-95 text-center border border-white
+}

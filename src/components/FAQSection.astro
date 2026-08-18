@@ -1,0 +1,335 @@
+---
+const faqs = [
+  {
+    id: 'faq-1',
+    question: 'Is composite decking better than wood?',
+    answer:
+      'Composite decking requires significantly less maintenance and offers superior resistance to moisture, fading, and insects.',
+  },
+  {
+    id: 'faq-2',
+    question: 'Does composite decking work in Florida?',
+    answer:
+      'Quality composite decking from brands like Trex, TimberTech, or Fiberon can last 25-30 years or more in South Florida tropical climate. The protective polymer cap resists UV fading, moisture intrusion, mold, and salt air -- making it an ideal long-term investment for Miami homeowners.',
+  },
+  {
+    id: 'faq-3',
+    question: 'How long does composite decking last?',
+    answer:
+      'Many homeowners choose composite decking because it is easier to clean and maintain than wood. Plus, it’s resistant to moisture, fading, and pests, making it ideal for Florida’s climate.',
+  },
+  {
+    id: 'faq-4',
+    question: 'Is composite decking eco-friendly?',
+    answer:
+      'In most cases, yes. Building permits are typically required for new deck construction or significant structural modifications in Miami-Dade County. Our team handles the entire permitting process on your behalf, ensuring your project complies with all local building codes and HOA requirements.',
+  },
+];
+---
+
+<section id="faqs" class="faq-section">
+  <div class="faq-container">
+    <div class="faq-left">
+      <h2 class="faq-title">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-right">
+      <div class="faq-accordion">
+        {
+          faqs.map((faq, i) => (
+            <details class="faq-item" open={i === 0}>
+              <summary class="faq-question">
+                <span class="faq-q-text">{faq.question}</span>
+                <span class="faq-icon" aria-hidden="true">
+                  <svg
+                    class="faq-icon-plus"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>
+                  <svg
+                    class="faq-icon-minus"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="faq-answer">
+                <p class="faq-answer-text">{faq.answer}</p>
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Section */
+  .faq-section {
+    padding: 100px 0 112px;
+    overflow: hidden;
+  }
+
+  .faq-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* LEFT */
+  .faq-left {
+    position: sticky;
+    top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .faq-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .faq-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d65311;
+    flex-shrink: 0;
+  }
+
+  .faq-eyebrow-text {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #d65311;
+  }
+
+  .faq-title {
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: #2d0863;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+
+  .faq-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: #d65311;
+  }
+
+  .faq-subtitle {
+    font-size: 0.95rem;
+    color: #777;
+    line-height: 1.8;
+    font-weight: 300;
+    max-width: 340px;
+  }
+
+  .faq-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 30px;
+    background: #2d0863;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    align-self: flex-start;
+    transition:
+      background 0.3s ease,
+      transform 0.25s ease,
+      box-shadow 0.3s ease;
+    box-shadow: 0 4px 24px rgba(45, 8, 99, 0.2);
+  }
+
+  .faq-cta:hover {
+    background: #1e054a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(45, 8, 99, 0.28);
+  }
+
+  .faq-cta:active {
+    transform: translateY(0);
+  }
+
+  /* RIGHT: Accordion */
+  .faq-accordion {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #e8e0f5;
+  }
+
+  .faq-item:first-child {
+    border-top: 1px solid #e8e0f5;
+  }
+
+  /* Quita el triángulo nativo de <summary> */
+  .faq-question {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 0;
+    cursor: pointer;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-q-text {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.5;
+    transition: color 0.25s ease;
+  }
+
+  .faq-item[open] .faq-q-text {
+    color: #2d0863;
+    font-weight: 500;
+  }
+
+  .faq-question:hover .faq-q-text {
+    color: #2d0863;
+  }
+
+  /* Icon circle */
+  .faq-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: #f0ebfa;
+    color: #2d0863;
+    transition:
+      background 0.3s ease,
+      color 0.3s ease;
+  }
+
+  .faq-item[open] .faq-icon {
+    background: #2d0863;
+    color: #fff;
+  }
+
+  .faq-question:hover .faq-icon {
+    background: #e0d5f7;
+  }
+
+  .faq-item[open] .faq-question:hover .faq-icon {
+    background: #1e054a;
+  }
+
+  .faq-icon-plus,
+  .faq-icon-minus {
+    position: absolute;
+    transition:
+      opacity 0.25s ease,
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-icon-minus {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.8);
+  }
+
+  .faq-item[open] .faq-icon-plus {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.8);
+  }
+
+  .faq-item[open] .faq-icon-minus {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+
+  /* Answer panel — animado solo con CSS, sin medir alturas en JS */
+  .faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-item[open] .faq-answer {
+    grid-template-rows: 1fr;
+  }
+
+  .faq-answer-text {
+    overflow: hidden;
+    padding: 0 48px 26px 0;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.85;
+    font-weight: 300;
+  }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    .faq-container {
+      grid-template-columns: 1fr;
+      gap: 52px;
+    }
+
+    .faq-left {
+      position: static;
+    }
+
+    .faq-subtitle {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .faq-container {
+      padding: 0 20px;
+      gap: 36px;
+    }
+
+    .faq-q-text {
+      font-size: 0.92rem;
+    }
+
+    .faq-answer-text {
+      padding-right: 8px;
+    }
+  }
+</style>

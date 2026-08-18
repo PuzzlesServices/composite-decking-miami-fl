@@ -1,0 +1,490 @@
+---
+const tabs = [
+  {
+    id: 'fiberon',
+    imageBrand: '/assets/icons/fiberon-logo.png',
+    image: '/assets/fiberon.webp',
+    imageAlt: 'Fiberon',
+    description:
+      "Fiberon decking is an excellent choice for Miami’s hot, humid, and coastal climate. Its capped composite and PVC collections offer exceptional moisture resistance, helping prevent issues related to humidity, rain, and frequent exposure to pool water. The durable protective cap also resists fading, staining, and mold growth, making Fiberon a low-maintenance solution for homeowners looking for long-lasting performance in South Florida's challenging weather conditions.",
+  },
+  {
+    id: 'trex',
+    imageBrand: '/assets/icons/trex-logo.png',
+    image: '/assets/trex.webp',
+    imageAlt: 'Trex',
+    description:
+      'Trex decking performs well in Miami thanks to its durable composite construction and low-maintenance design. Built   from recycled materials, Trex boards resist rot, insect damage, and moisture-related deterioration that can affect traditional wood decks in humid environments. Its protective shell helps maintain color and appearance despite intense sun exposure, heavy rainfall, and year-round outdoor use, making it a popular   choice for residential and commercial applications throughout South Florida.',
+  },
+  {
+    id: 'deckorators',
+    imageBrand: '/assets/icons/decorators-logo.png',
+    image: '/assets/deckorators.webp',
+    imageAlt: 'Deckorators',
+    description:
+      "Deckorators stands out in Miami because its innovative Mineral-Based Composite (MBC) technology delivers exceptional stability in extreme heat, humidity, and wet conditions. Collections like Voyage offer superior slip resistance, even   when wet, making them ideal for pool decks, waterfront properties, and coastal homes. The material's minimal thermal expansion and ability to withstand prolonged moisture exposure ensure long-term durability in South Florida’s tropical climate.",
+  },
+  {
+    id: 'timbertech',
+    imageBrand: '/assets/icons/timbertech-logo.png',
+    image: '/assets/timbertech.webp',
+    imageAlt: 'Timbertech',
+    description:
+      'TimberTech’s premium PVC and capped composite decking lines are well-suited for Miami’s intense sun, humidity, and frequent rainstorms. Advanced protective caps help shield boards from moisture intrusion, mold, mildew, and UV damage, while realistic wood-grain textures provide a high-end appearance without the maintenance of natural wood. TimberTech is particularly appealing for luxury outdoor living spaces that require both beauty and long-term performance in coastal environments.',
+  },
+  {
+    id: 'zuri',
+    imageBrand: '/assets/icons/zuri-logo.png',
+    image: '/assets/zuri.webp',
+    imageAlt: 'Zuri',
+    description:
+      'Zuri® Premium Decking is an ideal option for Miami homeowners seeking the elegant look of exotic hardwood without the challenges associated with maintaining natural wood in a humid coastal climate. Its cellular PVC construction resists moisture, salt air, mold, and insect damage while maintaining its rich appearance year after year. Unlike many traditional wood products, Zuri requires minimal upkeep and delivers excellent performance against the heat, humidity, and heavy rainfall common throughout South Florida.',
+  },
+  {
+    id: 'deckotech',
+    imageBrand: '/assets/icons/deckotech-logo.png',
+    image: '/assets/deckotech.webp',
+    imageAlt: 'Deckotech',
+    description:
+      "Deckotech provides premium composite decking, cladding, fencing, and architectural systems designed for residential and commercial projects. Engineered to perform in Miami's tropical and coastal climate, our products resist moisture, salt air, UV exposure, fading, insects, and rot, delivering the natural beauty of wood without the high maintenance. Built for durability      and modern design, Deckotech solutions offer long-lasting performance for outdoor spaces that stand up to South  Florida's demanding weather conditions.",
+  },
+];
+---
+
+<section id="trusted-brands" class="services-tabs-section">
+  <!-- Section Header -->
+  <div class="services-tabs-header">
+    <h2 class="services-tabs-title">The industry's most trusted makers.</h2>
+    <p class="services-tabs-desc">
+      We stock the industry's most trusted composite decking manufacturers, each
+      offering unique styles, colors, performance levels, and warranties.
+    </p>
+  </div>
+
+  <!-- Tab Navigation -->
+  <div class="tabs-nav-wrapper">
+    <div class="tabs-nav" role="tablist" aria-label="Services tabs">
+      {
+        tabs.map((tab, i) => (
+          <button
+            id={`tab-btn-${tab.id}`}
+            class={`tab-btn${i === 0 ? ' active' : ''}`}
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+            aria-controls={`tab-panel-${tab.id}`}
+            data-tab={tab.id}
+          >
+            <img
+              src={tab.imageBrand}
+              alt={tab.id}
+              class="h-7 w-20 object-contain m-auto"
+            />
+          </button>
+        ))
+      }
+      <div class="tab-indicator" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- Tab Panels -->
+  <div class="tabs-panels-wrapper">
+    {
+      tabs.map((tab, i) => (
+        <div
+          id={`tab-panel-${tab.id}`}
+          class={`tab-panel${i === 0 ? ' active' : ''}`}
+          role="tabpanel"
+          aria-labelledby={`tab-btn-${tab.id}`}
+          data-panel={tab.id}
+        >
+          <div class="tab-content">
+            {/* Text */}
+            <div class="tab-text">
+              <p class="tab-desc">{tab.description}</p>
+            </div>
+
+            {/* Image */}
+            <div class="tab-image-wrapper">
+              <img
+                src={tab.image}
+                alt={tab.imageAlt}
+                class="tab-image"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  function initTabs() {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+    const panels = document.querySelectorAll<HTMLElement>('.tab-panel');
+    const indicator = document.querySelector<HTMLElement>('.tab-indicator');
+
+    function moveIndicator(btn: HTMLButtonElement) {
+      if (!indicator) return;
+      indicator.style.width = `${btn.offsetWidth}px`;
+      indicator.style.left = `${btn.offsetLeft}px`;
+    }
+
+    function activateTab(tabId: string) {
+      buttons.forEach((btn) => {
+        const isActive = btn.dataset.tab === tabId;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        if (isActive) moveIndicator(btn);
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.panel === tabId;
+        if (isActive) {
+          panel.classList.add('entering');
+          panel.classList.remove('active');
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              panel.classList.add('active');
+              panel.classList.remove('entering');
+            });
+          });
+        } else {
+          panel.classList.remove('active', 'entering');
+        }
+      });
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        activateTab(btn.dataset.tab!);
+      });
+    });
+
+    // Init indicator position on first active tab
+    const firstActive =
+      document.querySelector<HTMLButtonElement>('.tab-btn.active');
+    if (firstActive) moveIndicator(firstActive);
+
+    // Reposition on resize
+    window.addEventListener('resize', () => {
+      const active =
+        document.querySelector<HTMLButtonElement>('.tab-btn.active');
+      if (active) moveIndicator(active);
+    });
+  }
+
+  // Run on page load
+  document.addEventListener('DOMContentLoaded', initTabs);
+  // Also run immediately in case DOMContentLoaded already fired (Astro)
+  if (document.readyState !== 'loading') initTabs();
+</script>
+
+<style>
+  /* ─── Section wrapper ─────────────────────────────────────── */
+  .services-tabs-section {
+    background-color: #f8f5f0;
+    padding: 96px 0 80px;
+    overflow: hidden;
+  }
+
+  /* ─── Header ──────────────────────────────────────────────── */
+  .services-tabs-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 56px;
+    padding: 0 20px;
+  }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .eyebrow-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2d0863;
+  }
+
+  .eyebrow-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #2d0863;
+  }
+
+  .services-tabs-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: #2d0863;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .title-accent {
+    color: #2d0863;
+  }
+
+  .services-tabs-desc {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  /* ─── Tab nav ─────────────────────────────────────────────── */
+  .tabs-nav-wrapper {
+    max-width: 1400px;
+    margin: 0 auto 48px;
+    padding: 0 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabs-nav-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabs-nav {
+    position: relative;
+    display: inline-flex;
+    gap: 0;
+    border-bottom: 2px solid #e0d8f0;
+    width: 100%;
+  }
+
+  .tab-btn {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-width: max-content;
+    padding: 14px 28px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #666;
+    background: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+    font-family: inherit;
+    letter-spacing: 0.02em;
+  }
+
+  .tab-btn:hover {
+    color: #2d0863;
+  }
+
+  .tab-btn.active {
+    color: #2d0863;
+    font-weight: 600;
+  }
+
+  /* Sliding underline indicator */
+  .tab-indicator {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 2px;
+    background: #2d0863;
+    border-radius: 2px 2px 0 0;
+    transition:
+      left 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ─── Tab panels ──────────────────────────────────────────── */
+  .tabs-panels-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    min-height: 480px;
+  }
+
+  .tab-panel {
+    display: none;
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+
+  .tab-panel.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .tab-panel.entering {
+    display: block;
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  /* ─── Tab content: two-column layout ─────────────────────── */
+  .tab-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  /* ─── Left: text column ───────────────────────────────────── */
+  .tab-text {
+    padding: 8px 0;
+  }
+
+  .tab-heading {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  .tab-desc {
+    font-size: 0.975rem;
+    color: #707070;
+    line-height: 1.8;
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+
+  .tab-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tab-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 400;
+  }
+
+  .feature-check {
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border-radius: 50%;
+    background: #2d0863;
+    position: relative;
+  }
+
+  .feature-check::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 5px;
+    height: 9px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    margin-top: -1px;
+  }
+
+  .tab-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 36px;
+    background: #2d0863;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition:
+      background 0.3s ease,
+      transform 0.25s ease;
+  }
+
+  .tab-cta:hover {
+    background: #1e054a;
+    transform: translateY(-2px);
+  }
+
+  .tab-cta:active {
+    transform: translateY(0);
+  }
+
+  /* ─── Right: image column ─────────────────────────────────── */
+  .tab-image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 24px 60px rgba(45, 8, 99, 0.15);
+  }
+
+  .tab-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .tab-image-wrapper:hover .tab-image {
+    transform: scale(1.04);
+  }
+
+  .tab-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(45, 8, 99, 0.08) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+
+  /* ─── Responsive ──────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .tab-content {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    /* On mobile, image goes first */
+    .tab-image-wrapper {
+      order: -1;
+    }
+
+    .tabs-panels-wrapper {
+      min-height: auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .services-tabs-section {
+      padding: 64px 0 56px;
+    }
+
+    .tab-btn {
+      padding: 12px 18px;
+      font-size: 0.82rem;
+    }
+  }
+</style>
