@@ -1,5 +1,5 @@
 ---
-import "../styles/global.css";
+import '../styles/global.css';
 
 interface Props {
   title?: string;
@@ -7,7 +7,7 @@ interface Props {
 }
 
 const {
-  title = "Composite Decking Miami FL | Premium Outdoor Deck Builders & Installers",
+  title = 'Composite Decking Miami FL',
   description = "Miami's #1 Licensed Composite Decking Contractors. High-durability, heat-resistant, low-maintenance composite wood decks, pergolas, and pool decks for South Florida homes.",
 } = Astro.props;
 ---
@@ -46,6 +46,11 @@ const {
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+
+    <meta property="og:image" content="/social-share-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Composite Decking Miami FL" />
   </head>
   <body class="font-sans">
     <slot />
