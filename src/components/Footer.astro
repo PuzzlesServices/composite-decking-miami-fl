@@ -12,9 +12,13 @@ const contactMenu = [
   },
   {
     icon: '/assets/icons/location.png',
-    label:
-      '79 SW 12th St, Miami, FL 33130 (Mailing) 777 NW 71st St, Miami, FL 33150 (Lumber Store)',
-    link: 'https://maps.app.goo.gl/h8TAxsCgQPTefD2EA',
+    label: '79 SW 12th St, Miami, FL 33130 (Mailing)',
+    link: 'https://maps.app.goo.gl/QABWQ7YbJcyKSps77',
+  },
+  {
+    icon: '/assets/icons/location.png',
+    label: '777 NW 71st St, Miami, FL 33150 (Lumber Store)',
+    link: 'https://maps.app.goo.gl/GQmWwoe8QiZrAumE9',
   },
 ];
 
@@ -88,7 +92,7 @@ const navigationMenu = [
         >
           Contact
         </h4>
-        <ul class="space-y-5 text-sm">
+        <ul class="space-y-4 text-sm">
           {
             contactMenu.map((item) => (
               <li>
@@ -113,7 +117,7 @@ const navigationMenu = [
         >
           Hours
         </h4>
-        <ul class="space-y-5 text-sm">
+        <ul class="space-y-4 text-sm">
           {
             hoursMenu.map((item) => (
               <li class="flex gap-5 last:opacity-70">
@@ -132,11 +136,11 @@ const navigationMenu = [
         >
           Navigation
         </h4>
-        <ul class="space-y-5 text-sm">
+        <ul class="space-y-4 text-sm">
           {
             navigationMenu.map((item) => (
               <li>
-                <a href={item.link} class="text-white">
+                <a href={item.link} class="text-white hover:text-[#2D0863]">
                   {item.label}
                 </a>
               </li>
