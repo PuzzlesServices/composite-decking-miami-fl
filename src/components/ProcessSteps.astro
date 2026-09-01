@@ -23,33 +23,36 @@ const steps = [
 ];
 ---
 
-<section id="project-types" class="process-section py-16 px-5">
-  <div class="process-container">
-    <!-- Title with decorative circle (same pattern as Benefits section) -->
-    <div class="process-title-wrapper flex justify-center items-center gap-3">
+<section id="project-types" class="process-section px-5 py-8 md:py-16">
+  <div class="mx-auto flex w-full max-w-3xl flex-col gap-10 sm:gap-16">
+    <div
+      class="process-title-wrapper flex items-start justify-center gap-3 sm:items-center"
+    >
       <div class="process-dot-ring">
         <span class="process-dot-inner"></span>
       </div>
-      <h2 class="process-title text-[#d65311] text-4xl uppercase">
-        Designed for Every Outdoor Space
+      <h2 class="process-title text-2xl text-[#d65311] uppercase lg:text-4xl">
+        Designed for Every Outdoor Space
       </h2>
     </div>
 
     <!-- Overlapping circles row -->
-    <div class="circles-row flex justify-center">
+    <div class="circles-row flex flex-wrap justify-center xl:flex-nowrap">
       {
         steps.map((step) => (
-          <div class="circle-item flex rounded-full w-[250px] h-[250px] items-center justify-center mx-[-10px] flex-col gap-3 p-12 border border-dashed border-[#FF5623] transition-all duration-300 hover:scale-110">
+          <div class="circle-item mx-[-10px] my-[-10px] flex h-[180px] w-[180px] flex-col items-center justify-center gap-3 rounded-full border border-dashed border-[#FF5623] p-5 transition-all duration-300 hover:scale-110 sm:my-[-25px] sm:min-h-[250px] sm:min-w-[250px] sm:p-12 xl:my-auto">
             <div class="circle-card">
               <img
                 src={step.image}
                 alt={step.label}
-                class="circle-img h-16 object-contain"
+                class="circle-img h-12 object-contain sm:h-16"
                 loading="lazy"
                 decoding="async"
               />
             </div>
-            <span class="circle-label text-center">{step.label}</span>
+            <span class="circle-label lg:text-md text-center text-sm">
+              {step.label}
+            </span>
           </div>
         ))
       }
@@ -58,15 +61,6 @@ const steps = [
 </section>
 
 <style>
-  .process-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
-  }
-
   .process-dot-ring {
     background: #ffdcb94d;
     min-width: 28px;
@@ -82,18 +76,5 @@ const steps = [
     min-width: 12px;
     min-height: 12px;
     border-radius: 50%;
-  }
-
-  @media (max-width: 768px) {
-    .process-container {
-      padding: 0 48px;
-      gap: 48px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .process-container {
-      padding: 0 36px;
-    }
   }
 </style>

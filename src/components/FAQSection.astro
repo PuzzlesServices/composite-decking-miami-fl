@@ -27,10 +27,14 @@ const faqs = [
 ];
 ---
 
-<section id="faqs" class="faq-section">
+<section id="faqs" class="overflow-hidden px-5 py-8 lg:py-16">
   <div class="faq-container">
     <div class="faq-left">
-      <h2 class="faq-title">Frequently Asked Questions</h2>
+      <h2
+        class="text-center text-2xl font-light text-[#2d0863] uppercase sm:text-left lg:text-4xl"
+      >
+        Frequently Asked Questions
+      </h2>
     </div>
 
     <div class="faq-right">
@@ -81,16 +85,9 @@ const faqs = [
 </section>
 
 <style>
-  /* Section */
-  .faq-section {
-    padding: 100px 0 112px;
-    overflow: hidden;
-  }
-
   .faq-container {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 40px;
     display: grid;
     grid-template-columns: 1fr 1.6fr;
     gap: 80px;
@@ -111,77 +108,6 @@ const faqs = [
     align-items: center;
     gap: 10px;
   }
-
-  .faq-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #d65311;
-    flex-shrink: 0;
-  }
-
-  .faq-eyebrow-text {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #d65311;
-  }
-
-  .faq-title {
-    font-size: clamp(2.4rem, 4vw, 3.5rem);
-    font-weight: 300;
-    line-height: 1.1;
-    color: #2d0863;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-  }
-
-  .faq-title em {
-    font-style: italic;
-    font-weight: 300;
-    color: #d65311;
-  }
-
-  .faq-subtitle {
-    font-size: 0.95rem;
-    color: #777;
-    line-height: 1.8;
-    font-weight: 300;
-    max-width: 340px;
-  }
-
-  .faq-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 13px 30px;
-    background: #2d0863;
-    color: #fff;
-    border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    align-self: flex-start;
-    transition:
-      background 0.3s ease,
-      transform 0.25s ease,
-      box-shadow 0.3s ease;
-    box-shadow: 0 4px 24px rgba(45, 8, 99, 0.2);
-  }
-
-  .faq-cta:hover {
-    background: #1e054a;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(45, 8, 99, 0.28);
-  }
-
-  .faq-cta:active {
-    transform: translateY(0);
-  }
-
   /* RIGHT: Accordion */
   .faq-accordion {
     display: flex;
@@ -215,7 +141,7 @@ const faqs = [
   .faq-q-text {
     font-size: 1rem;
     font-weight: 400;
-    color: #1a1a1a;
+    color: #000;
     line-height: 1.5;
     transition: color 0.25s ease;
   }
@@ -312,15 +238,10 @@ const faqs = [
     .faq-left {
       position: static;
     }
-
-    .faq-subtitle {
-      max-width: 100%;
-    }
   }
 
   @media (max-width: 600px) {
     .faq-container {
-      padding: 0 20px;
       gap: 36px;
     }
 

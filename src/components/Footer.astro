@@ -73,11 +73,15 @@ const navigationMenu = [
 ];
 ---
 
-<footer class="bg-[#FE7F03] text-white pt-16 pb-12">
-  <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex gap-10 pb-10 justify-between">
+{
+  /*
+<footer
+  class="relative z-1 mt-[-25px] bg-[#FE7F03] px-4 pt-20 pb-12 text-white"
+>
+  <div class="mx-auto max-w-300">
+    <div class="flex flex-wrap justify-between gap-10 pb-10 md:flex-nowrap">
       <!-- Brand & Licensing -->
-      <div class="lg:col-span-2 space-y-4 w-fit">
+      <div class="w-fit space-y-4 lg:col-span-2">
         <img
           src="/assets/composite-decking-miami-fl-footer-logo.webp"
           alt="Composite Decking Miami FL Logo"
@@ -86,9 +90,9 @@ const navigationMenu = [
       </div>
 
       <!-- Service Locations -->
-      <div class="w-[280px]">
+      <div class="w-70">
         <h4
-          class="text-sm font-medium text-white uppercase mb-5 tracking-[1.5px]"
+          class="mb-5 text-sm font-medium tracking-[1.5px] text-white uppercase"
         >
           Contact
         </h4>
@@ -100,7 +104,7 @@ const navigationMenu = [
                   <img
                     src={item.icon}
                     alt=""
-                    class="h-3 object-contain ml-[-22px]"
+                    class="ml-[-22px] h-3 object-contain"
                   />
                   {item.label}
                 </a>
@@ -113,7 +117,7 @@ const navigationMenu = [
       <!-- Hours -->
       <div class="w-fit">
         <h4
-          class="text-sm font-medium text-white uppercase mb-5 tracking-[1.5px]"
+          class="mb-5 text-sm font-medium tracking-[1.5px] text-white uppercase"
         >
           Hours
         </h4>
@@ -121,7 +125,7 @@ const navigationMenu = [
           {
             hoursMenu.map((item) => (
               <li class="flex gap-5 last:opacity-70">
-                <p class="w-[100px]">{item.day}</p>
+                <p class="w-25">{item.day}</p>
                 <p>{item.hour}</p>
               </li>
             ))
@@ -132,7 +136,7 @@ const navigationMenu = [
       <!-- Navigation Links -->
       <div class="w-fit">
         <h4
-          class="text-sm font-medium text-white uppercase mb-5 tracking-[1.5px]"
+          class="mb-5 text-sm font-medium tracking-[1.5px] text-white uppercase"
         >
           Navigation
         </h4>
@@ -153,6 +157,194 @@ const navigationMenu = [
     <!-- Bottom Bar -->
     <div class="text-sm text-white">
       <p>
+        © Compositive Decking Miami {new Date().getFullYear()}, All rights
+        reserverd
+      </p>
+    </div>
+  </div>
+</footer>
+*/
+}
+
+<footer
+  class="relative z-1 mt-[-25px] bg-[#FE7F03] px-4 pt-20 pb-12 text-white"
+>
+  <div class="mx-auto max-w-300">
+    <div
+      class="flex flex-wrap justify-center gap-10 pb-10 sm:justify-between md:flex-nowrap"
+    >
+      <!-- Brand & Licensing -->
+      <div class="w-fit space-y-4 lg:col-span-2">
+        <img
+          src="/assets/composite-decking-miami-fl-footer-logo.webp"
+          alt="Composite Decking Miami FL Logo"
+          class="h-20"
+        />
+      </div>
+
+      <!-- Contact -->
+      <div class="hidden w-70 md:block">
+        <h4
+          class="mb-5 text-sm font-medium tracking-[1.5px] text-white uppercase"
+        >
+          Contact
+        </h4>
+        <ul class="space-y-4 text-sm">
+          {
+            contactMenu.map((item) => (
+              <li>
+                <a href={item.link} class="flex items-center gap-3">
+                  <img
+                    src={item.icon}
+                    alt=""
+                    class="ml-[-22px] h-3 object-contain"
+                  />
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <details
+        class="group block w-full border-b border-white/20 pb-4 sm:hidden md:w-70 md:border-none md:pb-0"
+      >
+        <summary
+          class="mb-5 flex cursor-pointer list-none items-center justify-between text-sm font-medium tracking-[1.5px] text-white uppercase md:pointer-events-none md:cursor-default"
+        >
+          Contact
+          <svg
+            class="h-5 w-5 shrink-0 transition-transform duration-200 group-open:rotate-180 md:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 9l6 6 6-6"></path>
+          </svg>
+        </summary>
+        <ul class="space-y-4 text-sm">
+          {
+            contactMenu.map((item) => (
+              <li>
+                <a
+                  href={item.link}
+                  class="flex items-center justify-center gap-3"
+                >
+                  <img
+                    src={item.icon}
+                    alt=""
+                    class="h-3 object-contain sm:ml-[-22px]"
+                  />
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </details>
+
+      <!-- Hours -->
+      <div class="hidden w-fit md:block">
+        <h4
+          class="mb-5 text-sm font-medium tracking-[1.5px] text-white uppercase"
+        >
+          Hours
+        </h4>
+        <ul class="space-y-4 text-sm">
+          {
+            hoursMenu.map((item) => (
+              <li class="flex gap-5 last:opacity-70">
+                <p class="w-25">{item.day}</p>
+                <p>{item.hour}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <details
+        class="group block w-full border-b border-white/20 pb-4 sm:hidden md:w-fit md:border-none md:pb-0"
+      >
+        <summary
+          class="mb-5 flex cursor-pointer list-none items-center justify-between text-sm font-medium tracking-[1.5px] text-white uppercase md:pointer-events-none md:cursor-default"
+        >
+          Hours
+          <svg
+            class="h-5 w-5 shrink-0 transition-transform duration-200 group-open:rotate-180 md:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 9l6 6 6-6"></path>
+          </svg>
+        </summary>
+        <ul class="space-y-4 text-sm">
+          {
+            hoursMenu.map((item) => (
+              <li class="flex justify-center gap-5 last:opacity-70">
+                <p>{item.day}</p>
+                <p>{item.hour}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </details>
+
+      <!-- Navigation Links -->
+      <div class="hidden w-fit md:block">
+        <h4
+          class="mb-5 text-sm font-medium tracking-[1.5px] text-white uppercase"
+        >
+          Navigation
+        </h4>
+        <ul class="space-y-4 text-sm">
+          {
+            navigationMenu.map((item) => (
+              <li>
+                <a href={item.link} class="text-white hover:text-[#2D0863]">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <details class="group block w-full pb-4 sm:hidden md:w-fit md:pb-0">
+        <summary
+          class="mb-5 flex cursor-pointer list-none items-center justify-between text-sm font-medium tracking-[1.5px] text-white uppercase md:pointer-events-none md:cursor-default"
+        >
+          Navigation
+          <svg
+            class="h-5 w-5 shrink-0 transition-transform duration-200 group-open:rotate-180 md:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M6 9l6 6 6-6"></path>
+          </svg>
+        </summary>
+        <ul class="space-y-4 text-sm">
+          {
+            navigationMenu.map((item) => (
+              <li class="text-center">
+                <a href={item.link} class="text-white">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </details>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="text-sm text-white">
+      <p class="text-center sm:text-left">
         © Compositive Decking Miami {new Date().getFullYear()}, All rights
         reserverd
       </p>

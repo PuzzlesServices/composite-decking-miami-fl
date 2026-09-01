@@ -51,72 +51,85 @@ const tabs = [
 ];
 ---
 
-<section id="trusted-brands" class="services-tabs-section">
-  <!-- Section Header -->
-  <div class="services-tabs-header">
-    <h2 class="services-tabs-title">The industry's most trusted makers.</h2>
-    <p class="services-tabs-desc">
-      We stock the industry's most trusted composite decking manufacturers, each
-      offering unique styles, colors, performance levels, and warranties.
-    </p>
-  </div>
+<section
+  id="trusted-brands"
+  class="overflow-hidden bg-[#f8f5f0] px-5 py-8 lg:py-16"
+>
+  <div class="mx-auto max-w-350">
+    <!-- Section Header -->
+    <div class="px- mx-auto mb-10 max-w-180 text-center sm:mb-14">
+      <h2 class="mb-4 text-2xl text-[#2d0863] uppercase lg:text-4xl">
+        The industry's most trusted makers.
+      </h2>
+      <p class="font-light text-[#555]">
+        We stock the industry's most trusted composite decking manufacturers,
+        each offering unique styles, colors, performance levels, and warranties.
+      </p>
+    </div>
 
-  <!-- Tab Navigation -->
-  <div class="tabs-nav-wrapper">
-    <div class="tabs-nav" role="tablist" aria-label="Services tabs">
+    <p class="mb-8 block text-center text-[#2d0863] md:hidden">
+      ← Drag to view all →
+    </p>
+
+    <!-- Tab Navigation -->
+    <div class="tabs-nav-wrapper mx-auto mb-12 w-full overflow-x-auto sm:px-5">
+      <div class="tabs-nav" role="tablist" aria-label="Services tabs">
+        {
+          tabs.map((tab, i) => (
+            <button
+              id={`tab-btn-${tab.id}`}
+              class={`tab-btn${i === 0 ? ' active' : ''}`}
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+              aria-controls={`tab-panel-${tab.id}`}
+              data-tab={tab.id}
+            >
+              <img
+                src={tab.imageBrand}
+                alt={tab.id}
+                class="m-auto h-7 w-20 object-contain"
+              />
+            </button>
+          ))
+        }
+        <div class="tab-indicator" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <!-- Tab Panels -->
+    <div class="tabs-panels-wrapper">
       {
         tabs.map((tab, i) => (
-          <button
-            id={`tab-btn-${tab.id}`}
-            class={`tab-btn${i === 0 ? ' active' : ''}`}
-            role="tab"
-            aria-selected={i === 0 ? 'true' : 'false'}
-            aria-controls={`tab-panel-${tab.id}`}
-            data-tab={tab.id}
+          <div
+            id={`tab-panel-${tab.id}`}
+            class={`tab-panel${i === 0 ? ' active' : ''}`}
+            role="tabpanel"
+            aria-labelledby={`tab-btn-${tab.id}`}
+            data-panel={tab.id}
           >
-            <img
-              src={tab.imageBrand}
-              alt={tab.id}
-              class="h-7 w-20 object-contain m-auto"
-            />
-          </button>
-        ))
-      }
-      <div class="tab-indicator" aria-hidden="true"></div>
-    </div>
-  </div>
+            <div class="tab-content">
+              {/* Text */}
+              <div class="py-2">
+                <p class="font-light text-[#707070] lg:mb-7">
+                  {tab.description}
+                </p>
+              </div>
 
-  <!-- Tab Panels -->
-  <div class="tabs-panels-wrapper">
-    {
-      tabs.map((tab, i) => (
-        <div
-          id={`tab-panel-${tab.id}`}
-          class={`tab-panel${i === 0 ? ' active' : ''}`}
-          role="tabpanel"
-          aria-labelledby={`tab-btn-${tab.id}`}
-          data-panel={tab.id}
-        >
-          <div class="tab-content">
-            {/* Text */}
-            <div class="tab-text">
-              <p class="tab-desc">{tab.description}</p>
-            </div>
-
-            {/* Image */}
-            <div class="tab-image-wrapper">
-              <img
-                src={tab.image}
-                alt={tab.imageAlt}
-                class="tab-image"
-                loading="lazy"
-                decoding="async"
-              />
+              {/* Image */}
+              <div class="tab-image-wrapper">
+                <img
+                  src={tab.image}
+                  alt={tab.imageAlt}
+                  class="tab-image"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      ))
-    }
+        ))
+      }
+    </div>
   </div>
 </section>
 
@@ -183,70 +196,7 @@ const tabs = [
 </script>
 
 <style>
-  /* ─── Section wrapper ─────────────────────────────────────── */
-  .services-tabs-section {
-    background-color: #f8f5f0;
-    padding: 96px 0 80px;
-    overflow: hidden;
-  }
-
-  /* ─── Header ──────────────────────────────────────────────── */
-  .services-tabs-header {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto 56px;
-    padding: 0 20px;
-  }
-
-  .section-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-
-  .eyebrow-dot {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #2d0863;
-  }
-
-  .eyebrow-text {
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #2d0863;
-  }
-
-  .services-tabs-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300;
-    line-height: 1.2;
-    color: #2d0863;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .title-accent {
-    color: #2d0863;
-  }
-
-  .services-tabs-desc {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.75;
-    font-weight: 300;
-  }
-
-  /* ─── Tab nav ─────────────────────────────────────────────── */
   .tabs-nav-wrapper {
-    max-width: 1400px;
-    margin: 0 auto 48px;
-    padding: 0 20px;
-    overflow-x: auto;
     scrollbar-width: none;
   }
   .tabs-nav-wrapper::-webkit-scrollbar {
@@ -339,11 +289,6 @@ const tabs = [
     align-items: center;
   }
 
-  /* ─── Left: text column ───────────────────────────────────── */
-  .tab-text {
-    padding: 8px 0;
-  }
-
   .tab-heading {
     font-size: clamp(1.5rem, 2.5vw, 2rem);
     font-weight: 300;
@@ -351,14 +296,6 @@ const tabs = [
     color: #1a1a1a;
     margin-bottom: 16px;
     line-height: 1.25;
-  }
-
-  .tab-desc {
-    font-size: 0.975rem;
-    color: #707070;
-    line-height: 1.8;
-    margin-bottom: 28px;
-    font-weight: 300;
   }
 
   .tab-features {
@@ -464,7 +401,7 @@ const tabs = [
   @media (max-width: 900px) {
     .tab-content {
       grid-template-columns: 1fr;
-      gap: 36px;
+      gap: 20px;
     }
 
     /* On mobile, image goes first */
@@ -474,14 +411,15 @@ const tabs = [
 
     .tabs-panels-wrapper {
       min-height: auto;
+      padding: 0;
+    }
+
+    .tabs-nav {
+      border: none;
     }
   }
 
   @media (max-width: 600px) {
-    .services-tabs-section {
-      padding: 64px 0 56px;
-    }
-
     .tab-btn {
       padding: 12px 18px;
       font-size: 0.82rem;

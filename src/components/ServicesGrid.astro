@@ -21,15 +21,14 @@ const items = [
 ];
 ---
 
-<section
-  id="services-grid"
-  class="services-grid-section py-28 px-5 bg-[#2D0863]"
->
+<section id="services-grid" class="bg-[#2D0863] px-5 py-8 lg:py-28">
   <div class="services-grid-container">
     <!-- Left: Title & Description -->
     <div class="services-grid-left">
-      <h2 class="services-grid-title text-[#FE7F03]">More Than a Supplier</h2>
-      <p class="services-grid-desc text-white">
+      <h2 class="text-2xl text-[#FE7F03] uppercase lg:text-4xl">
+        More Than a Supplier
+      </h2>
+      <p class="text-md max-w-105 font-light text-white md:text-lg">
         At Composite Decking Miami FL, our goal is to provide customers with the
         best shopping experience through premium products, exceptional pricing,
         and superior service.
@@ -37,17 +36,17 @@ const items = [
     </div>
 
     <!-- Right: 6 Items Grid -->
-    <div class="services-grid-right">
+    <div class="services-grid-right mx-auto max-w-62.5 sm:max-w-full">
       {
         items.map((item) => (
-          <div class="gap-4 flex items-center transition-all ease-in-out duration-300 hover:-translate-y-2">
+          <div class="flex items-center gap-4 transition-all duration-300 ease-in-out hover:-translate-y-2">
             <img
               src="/assets/icons/check-icon.png"
               alt="Check Icon"
-              class="services-grid-img h-10"
+              class="h-10"
               loading="lazy"
             />
-            <h3 class="services-grid-item-title text-white">{item.title}</h3>
+            <h3 class="text-white">{item.title}</h3>
           </div>
         ))
       }
@@ -59,49 +58,17 @@ const items = [
   .services-grid-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
     align-items: center;
   }
-
   /* ── Left ── */
   .services-grid-left {
     display: flex;
     flex-direction: column;
     gap: 20px;
   }
-
-  .services-grid-tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #7c3aed;
-    background: #ede9fe;
-    padding: 6px 14px;
-    border-radius: 999px;
-    width: fit-content;
-  }
-
-  .services-grid-title {
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 300;
-    line-height: 1.15;
-    text-transform: uppercase;
-    margin: 0;
-  }
-
-  .services-grid-desc {
-    font-size: 1rem;
-    line-height: 1.75;
-    font-weight: 400;
-    margin: 0;
-    max-width: 420px;
-  }
-
   /* ── Right Grid ── */
   .services-grid-right {
     display: grid;
@@ -115,23 +82,14 @@ const items = [
       grid-template-columns: 1fr;
       gap: 48px;
     }
-
     .services-grid-left {
       position: static;
       align-items: center;
       text-align: center;
     }
-
-    .services-grid-desc {
-      max-width: 560px;
-    }
   }
 
   @media (max-width: 640px) {
-    .services-grid-section {
-      padding: 64px 0;
-    }
-
     .services-grid-right {
       grid-template-columns: 1fr;
     }

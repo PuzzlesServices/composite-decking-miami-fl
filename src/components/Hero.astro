@@ -29,53 +29,63 @@ const cards = [
 ---
 
 <section
-  class="relative pt-32 pb-20 md:pt-64 md:pb-25 overflow-hidden bg-[url(/assets/banner-composite-decking-miami.webp)] bg-cover bg-center"
+  class="relative overflow-hidden bg-[url(/assets/banner-composite-decking-miami.webp)] bg-cover bg-center pt-28 pb-15 sm:pt-32 sm:pb-20 md:pt-64 md:pb-25"
 >
-  <div class="max-w-[1400px] mx-auto px-5">
+  <div class="mx-auto max-w-350 px-5">
     <!-- Top Header Layout: Title & Buttons (Left) + Text (Right) -->
-    <div class="mb-32 relative">
+    <div
+      class="relative mb-8 flex flex-col-reverse items-center md:mb-32 md:flex-row md:items-start"
+    >
       <!-- Left Column: Title with 2 Buttons Below -->
-      <div class="text-left w-[60%]">
+      <div class="w-full text-left md:w-[60%]">
         <!-- Headline -->
         <h1
-          class="text-4xl sm:text-5xl lg:text-6xl font-medium uppercase text-white !leading-[70px] mb-6"
+          class="mt-10 mb-6 text-center text-3xl font-medium text-white uppercase sm:text-4xl md:text-left md:text-5xl md:!leading-[40px] lg:mt-0 lg:text-6xl lg:!leading-[70px]"
         >
           Miami's<br /> Largest Selection of Composite Decking
         </h1>
 
         <!-- 2 Buttons Below Title -->
         <div
-          class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
+          class="flex items-stretch justify-center gap-4 pt-2 sm:items-center md:justify-start"
         >
-          <a href="#contact" class="btn-primary">Get a Free Estimate</a>
-          <a href="tel:3055553325" class="btn-primary">Call Now</a>
+          <a
+            href="#contact"
+            class="btn-primary sm:px-auto w-1/2 !px-2 sm:w-fit md:!px-8"
+            >Get a Free Estimate</a
+          >
+          <a
+            href="tel:3055553325"
+            class="btn-primary w-1/2 !px-2 sm:w-fit md:!px-8">Call Now</a
+          >
         </div>
       </div>
 
       <!-- Right Column: Text Arriba a la Derecha -->
       <div
-        class="absolute right-0 top-[-80px] w-[380px] flex gap-4 items-start"
+        class="static top-[-80px] right-0 flex w-full flex-row-reverse items-start gap-2 sm:w-95 sm:gap-4 md:absolute md:flex-row"
       >
-        <p class="text-lg text-white font-light text-right leading-relaxed m-0">
+        <p
+          class="text-md m-0 text-left leading-relaxed font-light text-white md:text-lg lg:text-right"
+        >
           Premium composite decking, docks, cladding, wall panels, and outdoor
           solutions from the industry's leading brands.
         </p>
 
         <div
-          class="bg-white/30 min-w-7 min-h-7 flex items-center justify-center rounded-full"
+          class="flex min-h-7 min-w-7 items-center justify-center rounded-full bg-white/30"
         >
-          <span class="bg-white min-w-3 min-h-3 rounded-full"></span>
+          <span class="min-h-3 min-w-3 rounded-full bg-white"></span>
         </div>
       </div>
     </div>
 
-    <!-- Bottom Section: 6 Cards Underneath Main Text/Header -->
     <div class="flex flex-wrap justify-center gap-6 pt-4">
       {
         cards.map((card) => (
-          <div class="bg-white/20 backdrop-blur-[2px] flex items-center gap-4 w-[18%] p-4 sm:p-6 rounded-2xl border-white border transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden">
-            <img src={card.image} alt={card.alt} class="h-8" />
-            <h3 class="text-md font-normal text-white">{card.title}</h3>
+          <div class="group sm:text-md relative flex w-[46%] items-center gap-4 overflow-hidden rounded-2xl border border-white bg-white/20 p-4 text-sm backdrop-blur-[2px] transition-all duration-300 hover:-translate-y-1 sm:p-6 md:w-[28%] xl:w-[18%]">
+            <img src={card.image} alt={card.alt} class="h-6 sm:h-8" />
+            <h3 class="font-normal text-white">{card.title}</h3>
           </div>
         ))
       }
