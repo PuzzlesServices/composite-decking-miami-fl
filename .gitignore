@@ -1,15 +1,10 @@
-# dependencies
-/node_modules
-/.pnpm-store
-
 # build output
-/dist
-/.astro
+dist/
+# generated types
+.astro/
 
-# environment variables
-.env
-.env.*
-!.env.example
+# dependencies
+node_modules/
 
 # logs
 npm-debug.log*
@@ -17,12 +12,13 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# OS / Editor files
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-.vscode/
+
+# jetbrains setting folder
 .idea/

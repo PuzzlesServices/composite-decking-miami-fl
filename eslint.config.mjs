@@ -1,10 +1,21 @@
+import eslint from '@eslint/js';
+import tseslint from 'typescript-eslint';
 import eslintPluginAstro from 'eslint-plugin-astro';
+import globals from 'globals';
 
-export default [
-  ...eslintPluginAstro.configs.recommended,
+export default tseslint.config(
+  eslint.configs.recommended,
+  ...tseslint.configs.recommended,
+  ...eslintPluginAstro.configs['flat/recommended'],
   {
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
     rules: {
-      // Reglas personalizadas si se requieren
+      // Reglas personalizadas
     },
   },
-];
+);
