@@ -29,7 +29,7 @@ const cards = [
 ---
 
 <section
-  class="relative overflow-hidden bg-[url(/assets/banner-composite-decking-miami.webp)] bg-cover bg-center pt-28 pb-15 sm:pt-32 sm:pb-20 md:pt-64 md:pb-25"
+  class="relative z-2 overflow-hidden rounded-b-2xl bg-[url(/assets/banner-composite-decking-miami.webp)] bg-cover bg-center pt-22 pb-10 sm:rounded-b-4xl sm:pt-32 sm:pb-20 md:pt-64 md:pb-25"
 >
   <div class="mx-auto max-w-350 px-5">
     <!-- Top Header Layout: Title & Buttons (Left) + Text (Right) -->
@@ -40,23 +40,24 @@ const cards = [
       <div class="w-full text-left md:w-[60%]">
         <!-- Headline -->
         <h1
-          class="mt-10 mb-6 text-center text-3xl font-medium text-white uppercase sm:text-4xl md:text-left md:text-5xl md:!leading-[40px] lg:mt-0 lg:text-6xl lg:!leading-[70px]"
+          class="mt-10 mb-6 text-center text-2xl font-medium text-white uppercase sm:text-4xl md:text-left md:text-5xl md:!leading-[40px] lg:mt-0 lg:text-6xl lg:!leading-[70px]"
         >
           Miami's<br /> Largest Selection of Composite Decking
         </h1>
 
         <!-- 2 Buttons Below Title -->
         <div
-          class="flex items-stretch justify-center gap-4 pt-2 sm:items-center md:justify-start"
+          class="flex flex-col items-stretch justify-center gap-4 pt-2 sm:items-center md:flex-row md:justify-start"
         >
           <a
             href="#contact"
-            class="btn-primary sm:px-auto w-1/2 !px-2 sm:w-fit md:!px-8"
+            class="btn-primary sm:px-auto w-full !px-8 md:w-fit"
             >Get a Free Estimate</a
           >
           <a
             href="tel:3055553325"
-            class="btn-primary w-1/2 !px-2 sm:w-fit md:!px-8">Call Now</a
+            class="btn-primary sm:px-auto w-fit w-full !px-8 md:w-fit"
+            >Call Now</a
           >
         </div>
       </div>
@@ -83,7 +84,7 @@ const cards = [
     <div class="flex flex-wrap justify-center gap-6 pt-4">
       {
         cards.map((card) => (
-          <div class="group sm:text-md relative flex w-[46%] items-center gap-4 overflow-hidden rounded-2xl border border-white bg-white/20 p-4 text-sm backdrop-blur-[2px] transition-all duration-300 hover:-translate-y-1 sm:p-6 md:w-[28%] xl:w-[18%]">
+          <div class="group sm:text-md relative flex w-full items-center gap-4 overflow-hidden rounded-2xl border border-white bg-white/20 p-4 text-sm backdrop-blur-[2px] transition-all duration-300 hover:-translate-y-1 sm:w-[46%] sm:p-6 md:w-[28%] xl:w-[18%]">
             <img src={card.image} alt={card.alt} class="h-6 sm:h-8" />
             <h3 class="font-normal text-white">{card.title}</h3>
           </div>
